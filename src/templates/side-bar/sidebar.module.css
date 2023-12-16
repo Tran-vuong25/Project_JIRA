@@ -1,0 +1,29 @@
+.bgSideBar {
+    background-color: #073956;
+    width: 20%;
+    height: 100vh;
+    color: white;
+}
+
+.side-content {
+    margin: 0 3rem;
+}
+
+.side-layout {
+    display: flex;
+    margin: 2rem auto;
+}
+
+.avatar {
+    margin-right: 2rem;
+    background-color: white;
+}
+
+.side-nav{
+    border-bottom: 1px solid ;
+    padding: 2rem 0;
+}
+
+p{
+    color: white;
+}

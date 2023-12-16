@@ -10,7 +10,8 @@
 input {
     width: 40rem;
     padding: 1rem 1.5rem;
-    margin: 2rem;
+    margin: 1rem;
+    text-align: center;
 }
 
 form h1 {
@@ -34,16 +35,17 @@ form {
 
 }
 
-.btnLogin {
-    width: 50%;
-    margin: 0 auto;
+.btn {
+    width: 25%;
+    padding: .5rem 2rem ;
+    margin: 2rem;
     font-weight: 600;
     background-color: cornflowerblue;
     border-color: darkblue;
     color: darkblue;
 }
 
-.btnLogin:hover {
+.btn:hover {
     opacity: .6;
     background-color: darkblue;
     color: white;
