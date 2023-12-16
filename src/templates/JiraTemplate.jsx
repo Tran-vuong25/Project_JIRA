@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { Suspense } from "react";
+import { Outlet } from "react-router";
+import { SideBar } from "./side-bar/SideBar";
+import css from './jira-template.module.css'
 
-export default function JiraTemplate() {
+export function JiraTemplate() {
   return (
-    <div>JiraTemplate</div>
-  )
+    <>
+      <div className={css['j-layout']}>
+        <SideBar />
+        <Suspense fallback={<h2>Loading...</h2>}>
+          <Outlet />
+        </Suspense>
+      </div>
+    </>
+  );
 }

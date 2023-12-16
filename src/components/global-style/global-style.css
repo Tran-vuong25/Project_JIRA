@@ -50,7 +50,6 @@ button {
     cursor: pointer;
     border-radius: .5rem;
     padding: .5rem;
-    outline: none;
 }
 
 a {
@@ -62,20 +61,9 @@ a {
     margin: auto;
 }
 
-@keyframes bg-spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(.5deg);
-    }
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .bg {
-        animation: bg-spin infinite 5s linear;
-    }
+.active {
+    font-weight: 700;
+    background-color: cadetblue;
+    border-radius: 2rem;
+    padding: 1rem;
 }
