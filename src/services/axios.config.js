@@ -14,6 +14,17 @@ export const axiosAuth = axios.create({
   timeout: 180000,
 });
 
+axiosWithoutAuth, (axiosAuth.defaults.timeout = 180000);
+
+axiosWithoutAuth.interceptors.request.use(
+  (config) => {
+    config.headers.TokenCybersoft = CYBER_TOKEN;
+    return config;
+  },
+  (err) => {
+    return Promise.reject(err);
+  }
+);
 axiosAuth.interceptors.request.use(
   (config) => {
     config.headers.Authorization = `Bearer ${getLocal(ACCESS_TOKEN)}`;
@@ -21,7 +32,6 @@ axiosAuth.interceptors.request.use(
     return config;
   },
   (err) => {
-    // console.log({ err });
     return Promise.reject(err);
   }
 );

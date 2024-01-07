@@ -1,39 +1,58 @@
 import { Avatar } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import css from "./sidebar.module.css";
 import { Link } from "react-router-dom";
+import { getLocal } from "../../utils";
+import { USER_LOGIN } from "../../constants";
+import { CardIcon } from "../../assets/icons/card.icon";
+import { SettingIcon } from "../../assets/icons/setting.icon";
+import { CreateIcon } from "../../assets/icons/create.icon";
 
+const resp = getLocal(USER_LOGIN);
 export function SideBar() {
+  // useEffect({
+  // },[])
   return (
     <div className={css["bgSideBar"]}>
       <div className={css["side-content"]}>
         <div className={css["side-layout"]}>
-          <Avatar className={css["avatar"]}></Avatar>
-          <p>name | email</p>
+          <Avatar
+            className={css["avatar"]}
+            style={{ backgroundImage: `url("${resp.avatar}")` }}
+          ></Avatar>
+          <p>
+            {resp.name} <br /> {resp.email}
+          </p>
         </div>
 
         <div className={css["side-nav"]}>
-          <Link>
+          <Link to="#">
             <p>
-              <span></span>
+              <span>
+                <CardIcon />
+              </span>{" "}
               Cyber Board
             </p>
           </Link>
-          <Link>
+          <Link to="home">
             <p className="active">
-              <span></span>
+              <span>
+                <SettingIcon />
+              </span>{" "}
               Project management
             </p>
           </Link>
-          <Link>
+          <Link to="#">
             <p>
-              <span></span>
+              <span>
+                <CreateIcon />
+              </span>{" "}
               Create project
             </p>
           </Link>
         </div>
 
-        <div className={css["side-nav"]}>
+        {/* <div className={css["side-nav"]}>
           <Link>
             <p>
               <span></span>
@@ -64,7 +83,7 @@ export function SideBar() {
               Components
             </p>
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );
