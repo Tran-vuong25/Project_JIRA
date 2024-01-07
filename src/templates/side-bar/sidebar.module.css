@@ -3,6 +3,9 @@
     width: 20%;
     height: 100vh;
     color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .side-content {
@@ -11,19 +14,34 @@
 
 .side-layout {
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 2rem auto;
 }
 
 .avatar {
     margin-right: 2rem;
-    background-color: white;
+    background-size: cover;
 }
 
-.side-nav{
-    border-bottom: 1px solid ;
+.side-nav {
+    border-bottom: 1px solid;
     padding: 2rem 0;
 }
 
-p{
+.active {
+    font-weight: 700;
+    background-color: cadetblue;
+    border-radius: 2rem;
+    padding: 1rem;
+}
+
+p {
     color: white;
+    padding: 1rem .5rem;
+}
+
+p:nth-child(1):hover{
+ background-color: midnightblue;
+ border-radius: 2rem;
 }

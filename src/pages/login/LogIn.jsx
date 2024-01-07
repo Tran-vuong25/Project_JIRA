@@ -7,7 +7,7 @@ import { useFormik } from "formik";
 import * as Y from "yup";
 import { logIn } from "../../services/user.service";
 import { setLocal } from "../../utils";
-import { ACCESS_TOKEN } from "../../constants";
+import { ACCESS_TOKEN, USER_LOGIN } from "../../constants";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../../redux/user-slice.js";
 
@@ -40,18 +40,19 @@ export function LogIn() {
       logIn(values)
         .then((resp) => {
           setLocal(ACCESS_TOKEN, resp.accessToken);
+          setLocal(USER_LOGIN, resp);
 
           dispatch(
             userLogin({
               email: resp.email,
             })
           );
-          navigation("/projectmanagement");
+          navigation("/home");
         })
         .catch((err) => {
           setErrorLogin({
             isError: true,
-            message: err.message,
+            message: "Tên đăng nhập không hợp lệ",
           });
         });
     },

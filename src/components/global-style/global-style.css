@@ -60,10 +60,3 @@ a {
     width: 85%;
     margin: auto;
 }
-
-.active {
-    font-weight: 700;
-    background-color: cadetblue;
-    border-radius: 2rem;
-    padding: 1rem;
-}

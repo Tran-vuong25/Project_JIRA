@@ -1,18 +1,3 @@
-// export const sigIn = async (data) => {
-//     try {
-//         const response = await fetch('Users/signup', {
-//             method: 'POST',
-//             headers: {
-//                 "Content-Type": "application/json"
-//             },
-//             body: JSON.stringify(data),
-//         });
-//         if (!response.ok) { throw new Error('Network error') }
-//         return response;
-//     } catch (error) {
-//         console.log("Error", error);
-//     }
-
 import { axiosAuth, axiosWithoutAuth } from "./axios.config";
 
 export const logUp = async (data) => {
@@ -41,9 +26,9 @@ export const logIn = async (data) => {
   }
 };
 
-export const getUser = async () => {
+export const getUser = async (keyword) => {
   try {
-    const resp = await axiosAuth("/Users/getUser", {
+    const resp = await axiosAuth(`/Users/getUser?keyword=${keyword}`, {
       method: "GET",
     });
 
@@ -52,3 +37,18 @@ export const getUser = async () => {
     throw new Error(error);
   }
 };
+
+export const assignUserProject = async (data) => {
+  try {
+    const resp = await axiosAuth({
+      url: `/Project/assignUserProject`,
+      method: "post",
+      data,
+    });
+
+    return resp.data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
